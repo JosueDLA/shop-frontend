@@ -1,11 +1,11 @@
 import React from "react";
-import ProductsCRUD from "./productsCRUD";
+import ProductForm from "./productForm";
 import ProductsList from "./productsList";
 
 const Products = (props) => {
   return (
     <React.Fragment>
-      <ProductsCRUD />
+      <ProductForm />
       <ProductsList />
     </React.Fragment>
   );

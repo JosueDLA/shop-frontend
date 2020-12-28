@@ -6,9 +6,9 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <label className="navbar-brand" htmlFor="shop">
             Shop
-          </a>
+          </label>
           <button
             className="navbar-toggler"
             type="button"

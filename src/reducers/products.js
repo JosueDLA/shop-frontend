@@ -1,10 +1,10 @@
-import { DELETE_PRODUCT, GET_PRODUCTS } from "../actions/types.js";
+import { DELETE_PRODUCT, GET_PRODUCTS } from "../actions/types";
 
 const initialState = {
   products: [],
 };
 
-export default function (state = initialState, action) {
+export default function products(state = initialState, action) {
   switch (action.type) {
     case GET_PRODUCTS:
       return {
