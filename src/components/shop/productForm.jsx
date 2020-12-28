@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addProduct } from "../../actions/products";
 
 class ProductForm extends Component {
   state = {
@@ -8,6 +11,10 @@ class ProductForm extends Component {
     user: "",
   };
 
+  static propTypes = {
+    addProduct: PropTypes.func.isRequired,
+  };
+
   onChange = (e) =>
     this.setState({
       [e.target.name]: e.target.value,
@@ -15,7 +22,9 @@ class ProductForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log("submit");
+    const { name, price, stock, user } = this.state;
+    const product = { name, price, stock, user };
+    this.props.addProduct(product);
   };
 
   render() {
@@ -75,4 +84,4 @@ class ProductForm extends Component {
   }
 }
 
-export default ProductForm;
+export default connect(null, { addProduct })(ProductForm);

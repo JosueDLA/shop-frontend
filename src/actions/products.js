@@ -1,6 +1,7 @@
 import axios from "axios";
 import { GET_PRODUCTS } from "./types";
 import { DELETE_PRODUCT } from "./types";
+import { ADD_PRODUCT } from "./types";
 
 // GET PRODUCTS
 export const getProducts = () => (dispatch) => {
@@ -12,7 +13,7 @@ export const getProducts = () => (dispatch) => {
         payload: res.data,
       });
     })
-    .catch((err) => console.log("Error en API:", err));
+    .catch((err) => console.log("Error GET:", err));
 };
 
 // DELETE PRODUCT
@@ -25,5 +26,18 @@ export const deleteProduct = (id) => (dispatch) => {
         payload: id,
       });
     })
-    .catch((err) => console.log("Error en API:", err));
+    .catch((err) => console.log("Error DELETE:", err));
+};
+
+// ADD PRODUCT
+export const addProduct = (product) => (dispatch) => {
+  axios
+    .post("http://localhost:8000/product/", product)
+    .then((res) => {
+      dispatch({
+        type: ADD_PRODUCT,
+        payload: res.data,
+      });
+    })
+    .catch((err) => console.log("Error POST:", err));
 };

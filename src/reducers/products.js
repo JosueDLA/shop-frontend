@@ -1,4 +1,4 @@
-import { DELETE_PRODUCT, GET_PRODUCTS } from "../actions/types";
+import { ADD_PRODUCT, DELETE_PRODUCT, GET_PRODUCTS } from "../actions/types";
 
 const initialState = {
   products: [],
@@ -17,6 +17,11 @@ export default function products(state = initialState, action) {
         products: state.products.filter(
           (product) => product.id !== action.payload
         ),
+      };
+    case ADD_PRODUCT:
+      return {
+        ...state,
+        products: [...state.products, action.payload],
       };
     default:
       return state;
